@@ -85,11 +85,7 @@ JWT_SECRET=super-secret-key-12345
 
 ---
 
-## 🔑 Default Seed Admin Credentials
-
-An admin account is automatically seeded into the database on server start:
-* **Username**: `admin`
-* **Email**: `admin@demo.com`
+## 🔑 sample color reference
 * **Color Password Sequence (Select in order)**:
   1. 🔴 **Red**     `(255, 0, 0)`
   2. 🟢 **Green**   `(0, 255, 0)`
