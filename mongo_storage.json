@@ -1,0 +1,203 @@
+{
+  "products": [
+    {
+      "category": "Laptops",
+      "id": 1,
+      "name": "MacBook Air M2",
+      "price": "\u20b91,14,900",
+      "image": "/images/laptop.png",
+      "specs": "M2 chip, 8GB RAM, 256GB SSD",
+      "_id": "cdeebe72-4b72-40e6-ab19-9de079893486"
+    },
+    {
+      "category": "Laptops",
+      "id": 2,
+      "name": "Dell XPS 13",
+      "price": "\u20b91,29,990",
+      "image": "/images/laptop.png",
+      "specs": "Intel Core i7 13th Gen, 16GB RAM",
+      "_id": "b14d8940-b4f0-474c-8743-d05a1179b186"
+    },
+    {
+      "category": "Laptops",
+      "id": 3,
+      "name": "ASUS ROG Zephyrus",
+      "price": "\u20b91,64,990",
+      "image": "/images/laptop.png",
+      "specs": "Ryzen 9, RTX 4060, 16GB RAM",
+      "_id": "216c48c9-8e0d-4253-ae76-e862d1ac0fe8"
+    },
+    {
+      "category": "Laptops",
+      "id": 4,
+      "name": "HP Pavilion 14",
+      "price": "\u20b968,900",
+      "image": "/images/laptop.png",
+      "specs": "Intel Core i5 12th Gen, 8GB RAM",
+      "_id": "c4e95969-d028-44dd-83d8-9b0e5e361532"
+    },
+    {
+      "category": "Smartphones",
+      "id": 5,
+      "name": "iPhone 15 Pro",
+      "price": "\u20b91,34,900",
+      "image": "/images/smartphone.png",
+      "specs": "A17 Pro chip, Titanium design",
+      "_id": "2048a8dd-dde2-4a44-88f3-082d9d501357"
+    },
+    {
+      "category": "Smartphones",
+      "id": 6,
+      "name": "Samsung Galaxy S24 Ultra",
+      "price": "\u20b91,29,999",
+      "image": "/images/smartphone.png",
+      "specs": "Snapdragon 8 Gen 3, 200MP Camera",
+      "_id": "e3840ce5-2e9a-42c0-89ec-dcca0532fabf"
+    },
+    {
+      "category": "Smartphones",
+      "id": 7,
+      "name": "Google Pixel 8 Pro",
+      "price": "\u20b91,06,999",
+      "image": "/images/smartphone.png",
+      "specs": "Tensor G3, Advanced AI Features",
+      "_id": "7b329b60-836a-4898-b78c-9580ca973d2b"
+    },
+    {
+      "category": "Smartphones",
+      "id": 8,
+      "name": "OnePlus 12",
+      "price": "\u20b964,999",
+      "image": "/images/smartphone.png",
+      "specs": "Snapdragon 8 Gen 3, Hasselblad Camera",
+      "_id": "82b337a6-8d04-472e-b095-43ac18399c27"
+    },
+    {
+      "category": "ElectronicGadgets",
+      "id": 9,
+      "name": "Wireless Earbuds",
+      "price": "\u20b94,999",
+      "image": "/images/headphones.png",
+      "specs": "Active Noise Cancellation",
+      "_id": "3f2d7f65-0854-42c6-9b47-71afb27ed670"
+    },
+    {
+      "category": "ElectronicGadgets",
+      "id": 10,
+      "name": "Smartwatch",
+      "price": "\u20b97,499",
+      "image": "/images/smartwatch.png",
+      "specs": "Heart rate & Sleep monitoring",
+      "_id": "3f1dcb14-e5b4-442b-bad8-9ea8fa1841eb"
+    },
+    {
+      "category": "ElectronicGadgets",
+      "id": 11,
+      "name": "Bluetooth Speaker",
+      "price": "\u20b93,599",
+      "image": "/images/headphones.png",
+      "specs": "Waterproof, 12h playtime",
+      "_id": "3b2e857a-fcaa-4b5e-8ab5-7aecd20e30ee"
+    },
+    {
+      "category": "ElectronicGadgets",
+      "id": 12,
+      "name": "Power Bank",
+      "price": "\u20b91,999",
+      "image": "/images/smartphone.png",
+      "specs": "20000mAh, Fast Charging",
+      "_id": "015cf3be-8552-4275-a445-b61d8a7da0bd"
+    },
+    {
+      "category": "Fashion",
+      "id": 13,
+      "name": "Cotton T-Shirt",
+      "price": "\u20b9699",
+      "image": "/images/tshirt.png",
+      "specs": "100% Cotton, Regular fit",
+      "_id": "fcd571a6-9c3f-4231-8298-4049c8732e2d"
+    },
+    {
+      "category": "Fashion",
+      "id": 14,
+      "name": "Denim Jacket",
+      "price": "\u20b92,499",
+      "image": "/images/tshirt.png",
+      "specs": "Classic Blue, Vintage wash",
+      "_id": "0ecb274d-c5de-4a8a-9b1e-7c02fd6b111d"
+    },
+    {
+      "category": "Fashion",
+      "id": 15,
+      "name": "Running Shoes",
+      "price": "\u20b93,299",
+      "image": "/images/tshirt.png",
+      "specs": "Breathable mesh, lightweight",
+      "_id": "7e49efb4-07ea-485f-822f-fdd56773c881"
+    },
+    {
+      "category": "Fashion",
+      "id": 16,
+      "name": "Formal Trousers",
+      "price": "\u20b91,599",
+      "image": "/images/tshirt.png",
+      "specs": "Slim fit, Stretchable",
+      "_id": "85e7df7f-b2cf-4231-9edc-bc2ca4edb456"
+    },
+    {
+      "category": "HomeAppliances",
+      "id": 17,
+      "name": "Refrigerators",
+      "price": "\u20b945,999",
+      "image": "/images/smarttv.png",
+      "specs": "Double door, Energy efficient",
+      "_id": "aa19b1ff-7260-49f3-b981-cf8dbe4b4ce0"
+    },
+    {
+      "category": "HomeAppliances",
+      "id": 18,
+      "name": "Washing Machine",
+      "price": "\u20b932,500",
+      "image": "/images/smarttv.png",
+      "specs": "Front load, 8kg capacity",
+      "_id": "eaed481e-998f-406f-a048-58c534f64aa6"
+    },
+    {
+      "category": "HomeAppliances",
+      "id": 19,
+      "name": "Microwave Oven",
+      "price": "\u20b98,990",
+      "image": "/images/smarttv.png",
+      "specs": "Convection, 28L",
+      "_id": "c1436c11-56f4-4117-b762-a425161e2165"
+    },
+    {
+      "category": "HomeAppliances",
+      "id": 20,
+      "name": "Air Conditioner",
+      "price": "\u20b938,900",
+      "image": "/images/smarttv.png",
+      "specs": "1.5 Ton, Split AC",
+      "_id": "7e7c4183-11f3-4c0d-b077-de4c674404e9"
+    }
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "email": "admin@demo.com",
+      "password": "$2b$12$WI/1KJTGD289.wUGjHBTl.zyxLa70OSkYgyPzLLQF5S74a8ew3U4m",
+      "is_staff": true,
+      "_id": "5162afae-6e68-43ef-85c4-1b6272ec48b7"
+    },
+    {
+      "username": "testuser10",
+      "color_pattern": "#06b6d4,#d946ef,#ef4444",
+      "email": "",
+      "name": "",
+      "phone_number": "",
+      "address": "",
+      "is_staff": false,
+      "_id": "22d317b2-3119-4c80-86d4-ec8e08cee23f"
+    }
+  ]
+}
