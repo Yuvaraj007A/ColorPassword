@@ -12,17 +12,17 @@ export default function Landing() {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-600 rounded-full blur-[160px] opacity-25 animate-pulse"></div>
 
       <div className="max-w-5xl w-full space-y-16 relative z-10">
-        
+
         {/* Hero Section */}
         <div className="text-center space-y-6">
           <div className="inline-flex p-3.5 rounded-2xl bg-indigo-950/40 text-indigo-400 border border-indigo-800/30 mb-4 shadow glow-indigo animate-bounce">
             <Shield className="w-8 h-8" />
           </div>
-          
+
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-200 via-violet-200 to-sky-200 bg-clip-text text-transparent">
-            Cryptographic Palette Authentication
+            Color Palette Authentication
           </h1>
-          
+
           <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
             Replaces vulnerable text credentials with a secure, passwordless authentication model built on high-entropy color-sequence mapping, precision RGB tuning, and zero database plaintext leaks.
           </p>

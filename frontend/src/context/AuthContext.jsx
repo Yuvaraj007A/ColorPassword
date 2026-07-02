@@ -126,6 +126,48 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const forgotPassword = async (identity) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/forgot-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ identity }),
+      });
+      const data = await response.json();
+      return { status: response.status, data };
+    } catch (error) {
+      return { status: 500, data: { error: 'Network connection error' } };
+    }
+  };
+
+  const verifyOtp = async (email, otp) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/verify-otp`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp }),
+      });
+      const data = await response.json();
+      return { status: response.status, data };
+    } catch (error) {
+      return { status: 500, data: { error: 'Network connection error' } };
+    }
+  };
+
+  const resetPassword = async (email, otp, colors) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/reset-password`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, otp, colors }),
+      });
+      const data = await response.json();
+      return { status: response.status, data };
+    } catch (error) {
+      return { status: 500, data: { error: 'Network connection error' } };
+    }
+  };
+
   const fetchWithAuth = async (url, options = {}) => {
     const headers = {
       'Content-Type': 'application/json',
@@ -152,6 +194,9 @@ export const AuthProvider = ({ children }) => {
         checkUsername,
         registerUser,
         loginUser,
+        forgotPassword,
+        verifyOtp,
+        resetPassword,
         fetchWithAuth,
         API_BASE_URL,
       }}

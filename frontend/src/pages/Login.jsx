@@ -326,14 +326,26 @@ export default function Login() {
           </div>
         )}
 
-        <div className="mt-8 text-center text-xs text-slate-500 border-t border-slate-900 pt-5">
-          New terminal access?{' '}
-          <button
-            onClick={() => navigateTo('register')}
-            className="text-indigo-400 hover:text-indigo-300 font-semibold underline focus:outline-none"
-          >
-            Create Color Password
-          </button>
+        <div className="mt-8 text-center text-xs text-slate-500 border-t border-slate-900 pt-5 flex justify-center gap-4 flex-wrap">
+          <div>
+            New terminal access?{' '}
+            <button
+              onClick={() => navigateTo('register')}
+              className="text-indigo-400 hover:text-indigo-300 font-semibold underline focus:outline-none"
+            >
+              Create Color Password
+            </button>
+          </div>
+          <span className="text-slate-700 hidden sm:inline">|</span>
+          <div>
+            Lost access?{' '}
+            <button
+              onClick={() => navigateTo('forgot-password')}
+              className="text-indigo-400 hover:text-indigo-300 font-semibold underline focus:outline-none"
+            >
+              Forgot Password?
+            </button>
+          </div>
         </div>
       </div>
     </div>

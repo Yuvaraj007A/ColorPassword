@@ -3,7 +3,9 @@ import { useAuth } from './context/AuthContext';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-import AdminPanel from './pages/AdminPanel';import Landing from './pages/Landing';
+import AdminPanel from './pages/AdminPanel';
+import Landing from './pages/Landing';
+import ForgotPassword from './pages/ForgotPassword';
 
 function AppContent() {
   const { currentView, theme, accessibilityMode, colorBlindMode } = useAuth();
@@ -17,6 +19,8 @@ function AppContent() {
         return <Login />;
       case 'register':
         return <Register />;
+      case 'forgot-password':
+        return <ForgotPassword />;
       case 'dashboard':
         return <Dashboard />;
       case 'admin':

@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const LoginHistory = require('../models/LoginHistory');
 const { hashColorPattern, verifyColorPattern } = require('../utils/colorAuth');
+const { sendOTPEmail } = require('../utils/email');
 const jwt = require('jsonwebtoken');
 const useragent = require('useragent');
 
@@ -210,8 +211,129 @@ const login = async (req, res) => {
   }
 };
 
+/**
+ * Request password reset verification code (OTP)
+ */
+const forgotPassword = async (req, res) => {
+  try {
+    const { identity } = req.body;
+    if (!identity) {
+      return res.status(400).json({ error: 'Username or email is required' });
+    }
+
+    const normalizedIdentity = identity.toLowerCase().trim();
+    const user = await User.findOne({
+      $or: [
+        { username: normalizedIdentity },
+        { email: normalizedIdentity }
+      ]
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found with that username or email' });
+    }
+
+    // Generate 6-digit numeric OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    
+    // Store OTP in user record, expires in 10 minutes
+    user.resetOtp = otp;
+    user.resetOtpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 mins
+    await user.save();
+
+    // Send email
+    await sendOTPEmail(user.email, otp);
+
+    return res.status(200).json({
+      message: 'Verification code sent successfully to email.',
+      email: user.email // send back email to help frontend reference it
+    });
+  } catch (error) {
+    console.error('Error in forgotPassword:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+/**
+ * Verify verification code (OTP)
+ */
+const verifyOtp = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+    if (!email || !otp) {
+      return res.status(400).json({ error: 'Email and OTP code are required' });
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    if (!user.resetOtp || user.resetOtp !== otp.trim()) {
+      return res.status(400).json({ error: 'Invalid verification code' });
+    }
+
+    if (user.resetOtpExpires < new Date()) {
+      return res.status(400).json({ error: 'Verification code has expired' });
+    }
+
+    return res.status(200).json({ message: 'OTP verified successfully' });
+  } catch (error) {
+    console.error('Error in verifyOtp:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+/**
+ * Reset color password sequence
+ */
+const resetPassword = async (req, res) => {
+  try {
+    const { email, otp, colors } = req.body;
+    if (!email || !otp || !colors) {
+      return res.status(400).json({ error: 'Email, OTP, and new color sequence are required' });
+    }
+
+    if (!Array.isArray(colors) || colors.length !== 5) {
+      return res.status(400).json({ error: 'Color password must contain exactly 5 colors' });
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase().trim() });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    if (!user.resetOtp || user.resetOtp !== otp.trim()) {
+      return res.status(400).json({ error: 'Invalid verification code' });
+    }
+
+    if (user.resetOtpExpires < new Date()) {
+      return res.status(400).json({ error: 'Verification code has expired' });
+    }
+
+    // Hash the color pattern
+    const colorHash = await hashColorPattern(colors);
+
+    // Update password, clear OTP, reset lock attempts
+    user.colorHash = colorHash;
+    user.resetOtp = null;
+    user.resetOtpExpires = null;
+    user.failedAttempts = 0;
+    user.lockedUntil = null;
+    await user.save();
+
+    return res.status(200).json({ message: 'Color password reset successful' });
+  } catch (error) {
+    console.error('Error in resetPassword:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 module.exports = {
   verifyUsername,
   register,
   login,
+  forgotPassword,
+  verifyOtp,
+  resetPassword,
 };
